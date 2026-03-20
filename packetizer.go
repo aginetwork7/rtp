@@ -45,6 +45,7 @@ func NewPacketizer(
 	ssrc uint32,
 	payloader Payloader,
 	sequencer Sequencer,
+	timestamp,
 	clockRate uint32,
 ) Packetizer {
 	return &packetizer{
@@ -53,7 +54,7 @@ func NewPacketizer(
 		SSRC:        ssrc,
 		Payloader:   payloader,
 		Sequencer:   sequencer,
-		Timestamp:   globalMathRandomGenerator.Uint32(),
+		Timestamp:   timestamp,
 		ClockRate:   clockRate,
 		timegen:     time.Now,
 	}
